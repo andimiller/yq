@@ -6,6 +6,10 @@ scalaVersion := "2.12.8"
 
 enablePlugins(GraalVMNativeImagePlugin)
 
+graalVMNativeImageGraalVersion := Some("19.1.1")
+
+graalVMNativeImageOptions ++= List("-H:+ReportExceptionStackTraces", "--no-fallback", "--static")
+
 scalacOptions += "-target:jvm-1.8"
 
 scalafmtConfig in ThisBuild := Some(file("scalafmt.conf"))
